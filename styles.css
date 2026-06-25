@@ -291,14 +291,6 @@ html, body {
 .narrator-btn:hover { border-color: var(--blue-mid); background: var(--blue-light); }
 .narrator-btn.active { background: var(--blue); color: white; border-color: var(--blue-dark); }
 
-#activeNarratorBadge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: #1A2350; color: #CBD5F5;
-  border: 1.5px solid #2A3668; border-radius: 10px;
-  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
-  padding: 9px 14px;
-}
-
 #voiceToggleBtn {
   display: inline-flex; align-items: center; gap: 7px;
   background: #1A2350; color: #00C853;
@@ -467,6 +459,50 @@ html, body {
 }
 .mc-sm-cell.on   { background: #1565C0; }
 .mc-sm-cell.free { background: #F9A825; }
+
+/* ══ PANEL NARRADOR EN PARTIDA ══ */
+#narratorMenuBtn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #1A2350; color: #CBD5F5;
+  border: 1.5px solid #2A3668; border-radius: 10px;
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 9px 16px; cursor: pointer;
+  transition: background .15s, transform .12s;
+}
+#narratorMenuBtn:hover { background: #2A3668; transform: translateY(-1px); }
+#narratorMenuBtn.active { border-color: #F9A825; color: #F9A825; }
+
+#narratorMenu {
+  margin-bottom: 14px;
+}
+.narrator-menu-inner {
+  background: #111840;
+  border: 1.5px solid #2A3668;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.narrator-menu-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; color: #7B8FC4;
+  flex-shrink: 0;
+}
+.narrator-menu-pills {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.nm-pill {
+  padding: 7px 14px; border-radius: 20px;
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
+  cursor: pointer; border: 1.5px solid #2A3668;
+  background: #1A2350; color: #CBD5F5;
+  transition: all .15s;
+}
+.nm-pill:hover { border-color: #4A5899; background: #2A3668; }
+.nm-pill.active { background: #F9A825; color: #0A0F2C; border-color: #F9A825; }
+.nm-pill.active-off { background: #B71C1C; color: #FFCDD2; border-color: #E53935; }
 
 @media (max-width: 640px) {
   .modes-panel { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }

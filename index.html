@@ -30,12 +30,11 @@
     <p class="modal-sub">Elegí uno o más tipos para combinar en esta partida</p>
     <div class="games-grid" id="gamesGrid"></div>
     <div style="margin-bottom:16px;">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
         <span style="font-size:12px; font-weight:700; color:var(--muted); letter-spacing:1px;">NARRADOR</span>
-        <label style="display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none;">
-          <input type="checkbox" id="narratorToggle" onchange="toggleNarratorPanel()" style="width:16px; height:16px; cursor:pointer; accent-color:var(--blue);">
-          <span id="narratorToggleLabel" style="font-size:12px; color:var(--muted);">Sin narrador</span>
-        </label>
+        <button id="narratorToggle" onclick="toggleNarratorPanel()" style="display:inline-flex; align-items:center; gap:7px; padding:5px 12px; border-radius:20px; border:1.5px solid #DDE4EE; background:#EEF3FA; color:var(--muted); font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; cursor:pointer; transition:all .15s;">
+          🔇 Sin narrador
+        </button>
       </div>
       <div id="narratorPanel" style="display:none; display:none;">
         <div style="display:flex; gap:8px; flex-wrap:wrap;" id="narratorPicker">
@@ -76,11 +75,23 @@
 <!-- PANTALLA DE JUEGO -->
 <div id="gameScreen">
   <div class="game-header">
-    <div id="activeNarratorBadge" style="display:none;">🎲 Al azar</div>
-    <button id="voiceToggleBtn" onclick="toggleVoice()" title="Activar/desactivar voz">
-      🔊 Voz activada
-    </button>
+    <button id="narratorMenuBtn" onclick="toggleNarratorMenu()">🎙️ Narrador</button>
     <button id="newGameBtn" onclick="openModal()">⟳ Nuevo juego</button>
+  </div>
+
+  <!-- Panel de narrador en partida -->
+  <div id="narratorMenu" style="display:none;">
+    <div class="narrator-menu-inner">
+      <div class="narrator-menu-label">NARRADOR</div>
+      <div class="narrator-menu-pills">
+        <button class="nm-pill" data-key="off"     onclick="setInGameNarrator('off')">🔇 Sin narrador</button>
+        <button class="nm-pill" data-key="random"  onclick="setInGameNarrator('random')">🎲 Al azar</button>
+        <button class="nm-pill" data-key="diego"   onclick="setInGameNarrator('diego')">🎙️ Diego</button>
+        <button class="nm-pill" data-key="juana"   onclick="setInGameNarrator('juana')">🎉 Juana</button>
+        <button class="nm-pill" data-key="esteban" onclick="setInGameNarrator('esteban')">🎭 Esteban</button>
+        <button class="nm-pill" data-key="gladis"  onclick="setInGameNarrator('gladis')">💅 Gladis</button>
+      </div>
+    </div>
   </div>
   <div class="game-layout">
     <div class="board-section">
