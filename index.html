@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>🎱 Bingo</title>
+<title>Bingo</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
+ 
 <!-- PANTALLA DE INICIO -->
 <div id="startScreen">
   <div class="page-title">🎱 BINGO</div>
@@ -29,7 +30,16 @@
     </div>
     <p class="modal-sub">Elegí uno o más tipos para combinar en esta partida</p>
     <div class="games-grid" id="gamesGrid"></div>
-    <div style="margin-bottom:16px;">
+    <div style="margin-bottom:16px; display:flex; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:12px; font-weight:700; color:var(--muted); letter-spacing:1px;">MODO</span>
+          <button id="autoModeToggle" onclick="toggleAutoMode()" style="display:inline-flex; align-items:center; gap:7px; padding:5px 12px; border-radius:20px; border:1.5px solid #DDE4EE; background:#EEF3FA; color:var(--muted); font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; cursor:pointer; transition:all .15s;">
+            🔀 Manual
+          </button>
+        </div>
+      </div>
+      <div>
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
         <span style="font-size:12px; font-weight:700; color:var(--muted); letter-spacing:1px;">NARRADOR</span>
         <button id="narratorToggle" onclick="toggleNarratorPanel()" style="display:inline-flex; align-items:center; gap:7px; padding:5px 12px; border-radius:20px; border:1.5px solid #DDE4EE; background:#EEF3FA; color:var(--muted); font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; cursor:pointer; transition:all .15s;">
@@ -44,6 +54,7 @@
           <button class="narrator-btn"        data-narrator="esteban"onclick="selectNarrator('esteban')">🎭 Esteban</button>
           <button class="narrator-btn"        data-narrator="gladis" onclick="selectNarrator('gladis')">💅 Gladis</button>
         </div>
+      </div>
       </div>
     </div>
 
@@ -116,6 +127,9 @@
         </div>
       </div>
 
+      <div id="autoDrawContainer" style="display:none; margin-bottom:10px;">
+        <button class="ctrl-btn" id="autoDrawBtn" onclick="autoDraw()" style="background:#F9A825; color:#0A0F2C; border:none; width:100%;">🎲 Primer número</button>
+      </div>
       <div class="board-controls">
         <button class="ctrl-btn" id="resetButton">⟳ Reiniciar</button>
         <button class="ctrl-btn" id="undoButton">↩ Deshacer</button>
@@ -131,6 +145,11 @@
   </div>
 </div>
 
+ <div style="margin-top:32px; padding-top:16px; border-top:1px solid #1A2350; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; padding-left:20px; padding-right:20px;">
+    <span style="font-size:11px; color:#3A4570;">© 2025 Bingo Costa Rica. Todos los derechos reservados.</span>
+    <span style="font-size:11px; color:#3A4570;">Desarrollado por <a href="https://wa.me/50688238325" target="_blank" style="color:#7B8FC4; text-decoration:none; font-weight:700;" onmouseover="this.style.color='#F9A825'" onmouseout="this.style.color='#7B8FC4'">Luis Diego Venegas</a></span>
+  </div>
+ 
 <script src="script.js"></script>
 </body>
 </html>
